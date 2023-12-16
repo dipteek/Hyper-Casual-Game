@@ -38,6 +38,9 @@ public class GameManager : MonoBehaviour
 
      public Text mainMenuText;
 
+     public Text mainMenuNextLevelTextBtn;
+      public Text mainMenuLevelText;
+
      public bool isNextLevelPlay = false;
     // Start is called before the first frame update
     void Start()
@@ -66,7 +69,14 @@ public class GameManager : MonoBehaviour
         gameOverCanvas.SetActive(false);
         playCanvas.SetActive(true);
         isGameStart = false;
-        text.text = "Level : "+PlayerPrefs.GetInt("Level",1).ToString();
+        int tempLevelTxt =PlayerPrefs.GetInt("Level",1);
+        if (tempLevelTxt>102000)
+        {
+            text.text = "Level 102000+";
+        }else{
+            text.text = "Level "+PlayerPrefs.GetInt("Level",1).ToString();
+        }
+        
         //scoreText.text = PlayerPrefs.GetInt("CoinCount").ToString();
         scoreText.text = "0";
     }
@@ -79,7 +89,17 @@ public class GameManager : MonoBehaviour
             
         }*/
         if(mainMenuPanel.activeInHierarchy){
-            mainMenuText.text = PlayerPrefs.GetInt("CoinCount",0).ToString();
+            // 
+             int tempCoinTxt =PlayerPrefs.GetInt("CoinCount",0);
+             if (tempCoinTxt>1234060000000)
+             {
+                mainMenuText.text = "1234060000000+";
+             }else{
+                mainMenuText.text = PlayerPrefs.GetInt("CoinCount",0).ToString();
+             }
+
+             mainMenuLevelText.text = PlayerPrefs.GetInt("Level",1).ToString();
+            
         }
     }
 
@@ -127,6 +147,7 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.SetInt("CoinCount",countCoint);
         int level = PlayerPrefs.GetInt("Level",1);
         PlayerPrefs.SetInt("Level",level+1);
+        mainMenuNextLevelTextBtn.text = "Next";
         isNextLevelPlay = true;
         winPanel.SetActive(false);
         mainMenuPanel.SetActive(true);
@@ -140,5 +161,9 @@ public class GameManager : MonoBehaviour
             playPanel.SetActive(true);
         }
         
+    }
+
+    public void choosePlayerScene(){
+        SceneManager.LoadScene("MainMenu");
     }
 }
