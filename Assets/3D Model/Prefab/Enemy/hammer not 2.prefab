@@ -106,7 +106,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 305414175990816012}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.925, y: 0.1868993, z: -2.048676}
+  m_LocalPosition: {x: -0.8976831, y: 0.1868993, z: -2.048676}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1943041762316289981}
@@ -152,6 +152,8 @@ GameObject:
   - component: {fileID: 6465386558043906172}
   - component: {fileID: 5247540072814648935}
   - component: {fileID: 2133055662178774486}
+  - component: {fileID: 3186127120005809385}
+  - component: {fileID: 2873488647449234934}
   m_Layer: 0
   m_Name: Cone.001
   m_TagString: Untagged
@@ -223,6 +225,32 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &3186127120005809385
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2128022684466504926}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -6195245291975648998, guid: dd68787e9ef58da4f99362048c15d494, type: 3}
+--- !u!114 &2873488647449234934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2128022684466504926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d7ce3c5b90e47345bd6246684e6e8bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2316232352335676053
 GameObject:
   m_ObjectHideFlags: 0
@@ -234,6 +262,8 @@ GameObject:
   - component: {fileID: 2641069455724489688}
   - component: {fileID: 7918288352570032838}
   - component: {fileID: 7331899846807731433}
+  - component: {fileID: 7160662415740498478}
+  - component: {fileID: 6824155336723033605}
   m_Layer: 0
   m_Name: Cone.007
   m_TagString: Untagged
@@ -305,6 +335,32 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &7160662415740498478
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2316232352335676053}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -8335784253003298723, guid: dd68787e9ef58da4f99362048c15d494, type: 3}
+--- !u!114 &6824155336723033605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2316232352335676053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d7ce3c5b90e47345bd6246684e6e8bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2688875437759074423
 GameObject:
   m_ObjectHideFlags: 0
@@ -316,6 +372,8 @@ GameObject:
   - component: {fileID: 766420252714431742}
   - component: {fileID: 5050511888700169949}
   - component: {fileID: 2647363330746592867}
+  - component: {fileID: 9079020376916845397}
+  - component: {fileID: 4445816480973039307}
   m_Layer: 0
   m_Name: Cone.002
   m_TagString: Untagged
@@ -387,6 +445,32 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &9079020376916845397
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2688875437759074423}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 5769486934180388862, guid: dd68787e9ef58da4f99362048c15d494, type: 3}
+--- !u!114 &4445816480973039307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2688875437759074423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d7ce3c5b90e47345bd6246684e6e8bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3440668059897487696
 GameObject:
   m_ObjectHideFlags: 0
@@ -398,6 +482,8 @@ GameObject:
   - component: {fileID: 1325391343635895779}
   - component: {fileID: 1552603109571408385}
   - component: {fileID: 1233042512597675319}
+  - component: {fileID: 6807951095713020943}
+  - component: {fileID: 6969859477000835767}
   m_Layer: 0
   m_Name: Cone.008
   m_TagString: Untagged
@@ -469,6 +555,32 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &6807951095713020943
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3440668059897487696}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -6539473898289611233, guid: dd68787e9ef58da4f99362048c15d494, type: 3}
+--- !u!114 &6969859477000835767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3440668059897487696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d7ce3c5b90e47345bd6246684e6e8bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5102825911765181256
 GameObject:
   m_ObjectHideFlags: 0
@@ -480,6 +592,8 @@ GameObject:
   - component: {fileID: 3134418891220739831}
   - component: {fileID: 1991609478452978139}
   - component: {fileID: 3775489489670370295}
+  - component: {fileID: 7995885535213482695}
+  - component: {fileID: 3253912156139033421}
   m_Layer: 0
   m_Name: Cone.004
   m_TagString: Untagged
@@ -551,6 +665,32 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &7995885535213482695
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5102825911765181256}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -4746165098021687754, guid: dd68787e9ef58da4f99362048c15d494, type: 3}
+--- !u!114 &3253912156139033421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5102825911765181256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d7ce3c5b90e47345bd6246684e6e8bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5222417064851088428
 GameObject:
   m_ObjectHideFlags: 0
@@ -562,6 +702,8 @@ GameObject:
   - component: {fileID: 626308547100237449}
   - component: {fileID: 3893120832372571263}
   - component: {fileID: 2914429825374349984}
+  - component: {fileID: 947162445863709304}
+  - component: {fileID: 8560814926418335491}
   m_Layer: 0
   m_Name: Cone.003
   m_TagString: Untagged
@@ -633,6 +775,32 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &947162445863709304
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5222417064851088428}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 2504345457074934838, guid: dd68787e9ef58da4f99362048c15d494, type: 3}
+--- !u!114 &8560814926418335491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5222417064851088428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d7ce3c5b90e47345bd6246684e6e8bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6290182505012103676
 GameObject:
   m_ObjectHideFlags: 0
@@ -644,6 +812,8 @@ GameObject:
   - component: {fileID: 874268018169896047}
   - component: {fileID: 5909233933740212137}
   - component: {fileID: 737048720864534263}
+  - component: {fileID: 8562133873784592435}
+  - component: {fileID: 7908193658562645690}
   m_Layer: 0
   m_Name: Cone.006
   m_TagString: Untagged
@@ -715,6 +885,32 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &8562133873784592435
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6290182505012103676}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -929961955810353325, guid: dd68787e9ef58da4f99362048c15d494, type: 3}
+--- !u!114 &7908193658562645690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6290182505012103676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d7ce3c5b90e47345bd6246684e6e8bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6590025044314133042
 GameObject:
   m_ObjectHideFlags: 0
@@ -726,6 +922,8 @@ GameObject:
   - component: {fileID: 5601906642368545697}
   - component: {fileID: 3198429040360349388}
   - component: {fileID: 8883177221979907826}
+  - component: {fileID: 1540951440058466261}
+  - component: {fileID: 3659353453807125761}
   m_Layer: 0
   m_Name: Cone.005
   m_TagString: Untagged
@@ -797,6 +995,32 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &1540951440058466261
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6590025044314133042}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -787732276791324196, guid: dd68787e9ef58da4f99362048c15d494, type: 3}
+--- !u!114 &3659353453807125761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6590025044314133042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d7ce3c5b90e47345bd6246684e6e8bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8496750562989527056
 GameObject:
   m_ObjectHideFlags: 0
@@ -808,6 +1032,8 @@ GameObject:
   - component: {fileID: 1943041762316289981}
   - component: {fileID: 4550226693569741377}
   - component: {fileID: 2197582730246827852}
+  - component: {fileID: 2130123446307188193}
+  - component: {fileID: 5771226235343250896}
   m_Layer: 0
   m_Name: Cone
   m_TagString: Untagged
@@ -879,3 +1105,29 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &2130123446307188193
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8496750562989527056}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 3613567641014311022, guid: dd68787e9ef58da4f99362048c15d494, type: 3}
+--- !u!114 &5771226235343250896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8496750562989527056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d7ce3c5b90e47345bd6246684e6e8bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

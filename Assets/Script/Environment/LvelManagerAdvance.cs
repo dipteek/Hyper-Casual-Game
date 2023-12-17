@@ -7,8 +7,8 @@ using UnityEngine;
 public class LvelManagerAdvance :  PathSceneTool
 {
     public GameObject[] model;
-    [HideInInspector]
-    public GameObject[] modelPrefab = new GameObject[2];
+   // [HideInInspector]
+    public GameObject[] modelPrefab = new GameObject[6];
 
     private GameObject temp1,temp2;
     public Vector3 obj;
@@ -36,12 +36,17 @@ public class LvelManagerAdvance :  PathSceneTool
         private int startRange;
 
         private int endRange;
+
+        private int gameObjectLength;
+
+
      
 
      PathFollower pathFollower;
     // Start is called before the first frame update
     void Start()
     {
+        
         if (pathCreator != null)
         {
             DestroyObjects ();
@@ -52,7 +57,22 @@ public class LvelManagerAdvance :  PathSceneTool
         level = PlayerPrefs.GetInt("Level",1);
         if (level > 9){
             addOn = 0;
+            
         }
+
+        if(level <= 8){
+            gameObjectLength = 4;
+        }else if (level <= 16)
+        {
+            gameObjectLength = 5;
+        }else if (level <= 32)
+        {
+            gameObjectLength = 6;
+        }else{
+            gameObjectLength = 7;
+        }
+
+        
 
         ModelSelection();
         float random = Random.value;
@@ -63,26 +83,31 @@ public class LvelManagerAdvance :  PathSceneTool
            // print("level :"+ -level +"addOn "+ -addOn);
            // print(-level -addOn);
 
-            if(level <= 20){
+            if(level <= 8){
                 //temp1 = Instantiate(modelPrefab[Random.Range(0,2)]);
                 startRange = 0;
                 endRange = 2;
             }
-            if(level > 20 && level <= 50){
-                startRange = 1;
+            if(level > 8 && level <= 16){
+                startRange = 0;
                 endRange = 3;
                 //temp1 = Instantiate(modelPrefab[Random.Range(1,3)]);
             }
-                 
-            if(level > 50 && level <= 100){
-                startRange = 2;
+            if(level > 16 && level <= 32){
+                startRange = 1;
                 endRange = 4;
+                //temp1 = Instantiate(modelPrefab[Random.Range(1,3)]);
+            }
+                 
+            if(level > 32 && level <= 100){
+                startRange = 2;
+                endRange = 5;
                 //temp1 = Instantiate(modelPrefab[Random.Range(2,4)]);
             }
                  
             if(level > 100){
                 startRange = 3;
-                endRange = 4;
+                endRange = 5;
                 //temp1 = Instantiate(modelPrefab[Random.Range(3,4)]);
             }
                  
@@ -129,28 +154,34 @@ public class LvelManagerAdvance :  PathSceneTool
     }
 
     void ModelSelection(){
-        int randomModel =Random.Range(0,2);
+        modelPrefab = new GameObject[gameObjectLength];
+        int randomModel =Random.Range(0,3);
         print("random "+randomModel);
+        
         switch (randomModel)
         {
             case 0:
-            for (int i = 0; i < 2; i++)
+            for (int i = 0; i < gameObjectLength; i++)
             {
+                //print("i am getting index 0 "+i);
                 modelPrefab[i] = model[i];
                 // check print("modelPrefab[i]: "+modelPrefab[i].name + model[i].name);
             }
             break;
             case 1:
-            for (int i = 0; i < 2; i++)
+            for (int i = 0; i < gameObjectLength; i++)
             {
-                modelPrefab[i] = model[i+1];
+                //print("i am getting index  1 "+i);
+                modelPrefab[i] = model[i];
+                //print(model.Length + "i am getting index name "+modelPrefab[i].name + " length "+modelPrefab.Length);
                // print("modelPrefab[i]: "+modelPrefab[i].name + model[i].name);
             }
             break;
             case 2:
-            for (int i = 0; i < 2; i++)
+            for (int i = 0; i < gameObjectLength; i++)
             {
-                modelPrefab[i] = model[i];
+                //print("i am getting index 2 "+i);
+                modelPrefab[i] = model[i+1];
                 //print("modelPrefab[i]: "+modelPrefab[i].name + model[i].name);
             }
             break;
@@ -228,7 +259,16 @@ public class LvelManagerAdvance :  PathSceneTool
                     if (pathCreator != null)
                     {
                         if(enemyObj.z < path.length){
-                            Instantiate (modelPrefab[Random.Range(startRange,endRange)]/*temp1*/, enemyObj, rot, holder.transform);
+
+                            GameObject tempGameObject;
+                            tempGameObject = modelPrefab[Random.Range(startRange,endRange)];
+                            if(tempGameObject.name == "hammer not 2"){
+                                 enemyObj =new Vector3(point.x - 0.65f,0.05f,point.z + spacing);
+                                Instantiate (/*temp1*/tempGameObject, enemyObj, rot, holder.transform);
+                            }else{
+                                 Instantiate (/*temp1*/tempGameObject, enemyObj, rot, holder.transform);
+                            }
+                            
                         }
                         
                         if (coinObject.z < path.length)
