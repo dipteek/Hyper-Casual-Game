@@ -15,6 +15,8 @@ public class ButtonController : MonoBehaviour
 
      int playerSelecter;
 
+
+
      public GameObject gameObject;
 
      public Button jumpButton;
@@ -63,6 +65,7 @@ public class ButtonController : MonoBehaviour
     
 
     public void Jump(){
+                    FindObjectOfType<SoundManagerPlay>().playJumpSFX();
                     if (!pathFollower.isAdvJumpFollowerCompletedAdv)
                     {
                         //pathFollower.isJumpFollower = true;
@@ -122,6 +125,7 @@ public class ButtonController : MonoBehaviour
 
 
     public void slide(){
+                FindObjectOfType<SoundManagerPlay>().playSlideSFX();
                 colliderTempPositionHold = playerCollider.center;
                 animator.SetTrigger("slide");
                  //animator.SetBool("slideb",true);

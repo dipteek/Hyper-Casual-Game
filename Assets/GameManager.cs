@@ -104,6 +104,7 @@ public class GameManager : MonoBehaviour
     }
 
     public void playGame(){
+        FindObjectOfType<SoundManager>().playSFX();
         isGameStart = true;
         playBtn.enabled = false;
         button.SetActive(false);
@@ -154,6 +155,8 @@ public class GameManager : MonoBehaviour
     }
 
     public void mainMenuPlayButton(){
+        FindObjectOfType<SoundManager>().isPlayButtonClick = true;
+        FindObjectOfType<SoundManager>().playSFX();
         if(isNextLevelPlay){
             SceneManager.LoadScene("SampleScene");
         }else{
