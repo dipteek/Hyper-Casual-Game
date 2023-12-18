@@ -30,6 +30,8 @@ public class ButtonController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        jumpButton.gameObject.SetActive(false);
+        slideButton.gameObject.SetActive(false);
         playerSelecter =  PlayerPrefs.GetInt("selectedCharater");
         if (playerSelecter == 0)
         {
@@ -62,10 +64,24 @@ public class ButtonController : MonoBehaviour
         
     }
 
+    /// <summary>
+    /// Update is called every frame, if the MonoBehaviour is enabled.
+    /// </summary>
+    void Update()
+    {
+        
+        if (FindObjectOfType<GameManager>().isGameStart)
+        {
+            jumpButton.gameObject.SetActive(true);
+            slideButton.gameObject.SetActive(true);
+        }
+    }
+
     
 
     public void Jump(){
                     FindObjectOfType<SoundManagerPlay>().playJumpSFX();
+                    jumpButton.enabled = false;
                     if (!pathFollower.isAdvJumpFollowerCompletedAdv)
                     {
                         //pathFollower.isJumpFollower = true;
@@ -116,6 +132,7 @@ public class ButtonController : MonoBehaviour
 
     private IEnumerator DelayedForGround(){
         yield return new WaitForSeconds(0.31f);
+        jumpButton.enabled = true;
         //pathFollower.isJumpFollower = false;
         animator.SetTrigger("run");
         pathFollower.isJumpFollowerCompleted =false;
@@ -125,6 +142,7 @@ public class ButtonController : MonoBehaviour
 
 
     public void slide(){
+                slideButton.enabled = false;
                 FindObjectOfType<SoundManagerPlay>().playSlideSFX();
                 colliderTempPositionHold = playerCollider.center;
                 animator.SetTrigger("slide");
@@ -142,6 +160,7 @@ public class ButtonController : MonoBehaviour
 
    private IEnumerator DelayedForSlide(){
         yield return new WaitForSeconds(1.0f);
+        slideButton.enabled = true;
         //pathFollower.isJumpFollower = false;
         //animator.SetBool("slideb",false);
         //animator.SetBool("runb",true);

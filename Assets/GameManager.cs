@@ -42,9 +42,13 @@ public class GameManager : MonoBehaviour
       public Text mainMenuLevelText;
 
      public bool isNextLevelPlay = false;
+
+     public Material[] skyMaterial = new Material[3];
     // Start is called before the first frame update
     void Start()
     {
+        int randomModel =Random.Range(0,3);
+        RenderSettings.skybox = skyMaterial[randomModel];
         isNextLevelPlay = false;
         mainMenuPanel.SetActive(true);
         playerSelecter =  PlayerPrefs.GetInt("selectedCharater");
@@ -111,12 +115,14 @@ public class GameManager : MonoBehaviour
     }
 
     public void gameOverUI(){
+        FindObjectOfType<SoundManager>().playGameoverSFX();
         gameDefeat = true;
         playCanvas.SetActive(false);
         gameOverCanvas.SetActive(true);
     }
 
     public void Replay(){
+        FindObjectOfType<SoundManager>().playSFX();
         SceneManager.LoadScene("SampleScene");
     }
 

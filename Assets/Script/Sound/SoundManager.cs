@@ -8,6 +8,9 @@ public class SoundManager : MonoBehaviour
 
     public AudioClip audioClip;
 
+    public AudioClip audioMainMenuPlayBtnClip;
+    public AudioClip audioGameOverClip;
+
     
     public bool isPlayButtonClick = false;
     // Start is called before the first frame update
@@ -30,6 +33,11 @@ public class SoundManager : MonoBehaviour
         {
             
         }
+    }
+
+    public void playGameoverSFX(){
+        // sound effect
+        audioSource.PlayOneShot(audioGameOverClip,1);
     }
 
     
