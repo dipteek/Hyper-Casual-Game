@@ -68,8 +68,10 @@ public class LvelManagerAdvance :  PathSceneTool
         }else if (level <= 32)
         {
             gameObjectLength = 6;
-        }else{
+        }else if (level <= 32){
             gameObjectLength = 7;
+        }else{
+            gameObjectLength = 8;
         }
 
         
@@ -99,15 +101,21 @@ public class LvelManagerAdvance :  PathSceneTool
                 //temp1 = Instantiate(modelPrefab[Random.Range(1,3)]);
             }
                  
-            if(level > 32 && level <= 100){
+            if(level > 32 && level <= 40){
                 startRange = 2;
                 endRange = 5;
+                //temp1 = Instantiate(modelPrefab[Random.Range(2,4)]);
+            }
+
+            if(level > 40 && level <= 100){
+                startRange = 3;
+                endRange = 7;
                 //temp1 = Instantiate(modelPrefab[Random.Range(2,4)]);
             }
                  
             if(level > 100){
                 startRange = 3;
-                endRange = 5;
+                endRange = 8;
                 //temp1 = Instantiate(modelPrefab[Random.Range(3,4)]);
             }
                  
@@ -265,6 +273,15 @@ public class LvelManagerAdvance :  PathSceneTool
                             if(tempGameObject.name == "hammer not 2"){
                                  enemyObj =new Vector3(point.x - 0.65f,0.05f,point.z + spacing);
                                 Instantiate (/*temp1*/tempGameObject, enemyObj, rot, holder.transform);
+                            }else if (tempGameObject.name == "Obstacle 13 V4")
+                            {
+                                enemyObj =new Vector3(point.x + 1.4f,0.05f,point.z + spacing);
+                                Instantiate (/*temp1*/tempGameObject, enemyObj, rot, holder.transform);
+                            }else if (tempGameObject.name == "Obstacle 23 V4")
+                            {
+                                //Quaternion rotForObs1 = Quaternion.Euler(0,0,0);
+                                enemyObj =new Vector3(point.x - 1.4f,0.05f,point.z + spacing);
+                                Instantiate (/*temp1*/tempGameObject, enemyObj, rot/* * Quaternion.Inverse(rotForObs1)*/, holder.transform);
                             }else{
                                  Instantiate (/*temp1*/tempGameObject, enemyObj, rot, holder.transform);
                             }

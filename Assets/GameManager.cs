@@ -47,7 +47,8 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        int randomModel =Random.Range(0,3);
+        int randomModel =Random.Range(0,19);
+        print("sky "+randomModel);
         RenderSettings.skybox = skyMaterial[randomModel];
         isNextLevelPlay = false;
         mainMenuPanel.SetActive(true);
