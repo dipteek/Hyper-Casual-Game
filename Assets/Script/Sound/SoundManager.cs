@@ -11,6 +11,8 @@ public class SoundManager : MonoBehaviour
     public AudioClip audioMainMenuPlayBtnClip;
     public AudioClip audioGameOverClip;
 
+    public AudioClip audioCoinCollider;
+
     
     public bool isPlayButtonClick = false;
     // Start is called before the first frame update
@@ -38,6 +40,11 @@ public class SoundManager : MonoBehaviour
     public void playGameoverSFX(){
         // sound effect
         audioSource.PlayOneShot(audioGameOverClip,1);
+    }
+
+    public void playCoinColliderSFX(){
+        // sound effect
+        audioSource.PlayOneShot(audioCoinCollider,1);
     }
 
     

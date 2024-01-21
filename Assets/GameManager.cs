@@ -7,8 +7,10 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    public adsManager adManager;
     public bool isGameStart = false;
     public bool gameDefeat = false;
+    public bool gameLevelFinished = false;
 
     public GameObject playCanvas;
     public GameObject gameOverCanvas;
@@ -19,6 +21,7 @@ public class GameManager : MonoBehaviour
 
     public Text scoreText;
     [SerializeField] Button playBtn;
+    [SerializeField] GameObject moveTutorial;
 
     public int score = 0;
 
@@ -44,32 +47,42 @@ public class GameManager : MonoBehaviour
      public bool isNextLevelPlay = false;
 
      public Material[] skyMaterial = new Material[3];
+     public GameObject[] playerList = new GameObject[2];
+
+     public GameObject musicControlPanel;
     // Start is called before the first frame update
     void Start()
     {
-        int randomModel =Random.Range(0,19);
+        adManager.LoadBanner();
+        adManager.LoadInterstitial();
+        int randomModel =Random.Range(0,9);
         print("sky "+randomModel);
         RenderSettings.skybox = skyMaterial[randomModel];
         isNextLevelPlay = false;
+       gameLevelFinished = false;
         mainMenuPanel.SetActive(true);
-        playerSelecter =  PlayerPrefs.GetInt("selectedCharater");
+        playerSelecter =  PlayerPrefs.GetInt("selectedCharater",0);
         if (playerSelecter == 0)
         {
-            gameObject = GameObject.Find("Players/Breathing Idle1");
-            gameObject.SetActive(true);
-            GameObject gameObject2 =GameObject.Find("Players/untitlemixama3");
-            gameObject2.SetActive(false);
+            //gameObject = GameObject.Find("Players/Breathing Idle1"); 
+            gameObject = playerList[0].gameObject;
+            gameObject.gameObject.SetActive(true);
+            //GameObject gameObject2 =GameObject.Find("Players/untitlemixama3");
+            //gameObject2.SetActive(false);
+            playerList[1].gameObject.SetActive(false);
         }else if(playerSelecter == 1)
         {
-            gameObject = GameObject.Find("Players/untitlemixama3");
+            //gameObject = GameObject.Find("Players/untitlemixama3");
+            gameObject = playerList[1];
             gameObject.SetActive(true);
-            GameObject gameObject2 =GameObject.Find("Players/Breathing Idle1");
-            gameObject2.SetActive(false);
+            //GameObject gameObject2 =GameObject.Find("Players/Breathing Idle1");
+            playerList[0].SetActive(false);
         }else{
-            gameObject = GameObject.Find("Players/Breathing Idle1");
+            //gameObject = GameObject.Find("Players/Breathing Idle1");
+            gameObject =playerList[0];
             gameObject.SetActive(true);
-            GameObject gameObject2 =GameObject.Find("Players/untitlemixama3");
-            gameObject2.SetActive(false);
+            //GameObject gameObject2 =GameObject.Find("Players/untitlemixama3");
+            playerList[1].SetActive(false);
         }
         gameOverCanvas.SetActive(false);
         playCanvas.SetActive(true);
@@ -84,6 +97,7 @@ public class GameManager : MonoBehaviour
         
         //scoreText.text = PlayerPrefs.GetInt("CoinCount").ToString();
         scoreText.text = "0";
+        adManager. LoadBanner();
     }
 
     // Update is called once per frame
@@ -109,22 +123,28 @@ public class GameManager : MonoBehaviour
     }
 
     public void playGame(){
+        adManager.LoadInterstitial();
         FindObjectOfType<SoundManager>().playSFX();
         isGameStart = true;
         playBtn.enabled = false;
+        moveTutorial.SetActive(false);
         button.SetActive(false);
+        adManager. LoadBanner();
     }
 
     public void gameOverUI(){
+        adManager.LoadInterstitial();
         FindObjectOfType<SoundManager>().playGameoverSFX();
         gameDefeat = true;
         playCanvas.SetActive(false);
         gameOverCanvas.SetActive(true);
+        gameLevelFinished = true;
     }
 
     public void Replay(){
+        adManager.ShowInterstitial();
         FindObjectOfType<SoundManager>().playSFX();
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("leveld");
     }
 
     public void coinCollect(){
@@ -135,6 +155,8 @@ public class GameManager : MonoBehaviour
     }
 
     public void winlevel(){
+         adManager. LoadRewarded();
+        gameLevelFinished = true;
         winPanel.SetActive(true);
         winPanelLevelText.text = PlayerPrefs.GetInt("Level",1).ToString();
         int totalCoin = 0;
@@ -161,11 +183,30 @@ public class GameManager : MonoBehaviour
         mainMenuPanel.SetActive(true);
     }
 
+    public void winDoubleBtnlevel(){
+        int totalCoinCheck = PlayerPrefs.GetInt("CoinCount",0);
+        int coinDouble = score * 2;        
+        countCoint = totalCoinCheck + coinDouble;
+        
+        PlayerPrefs.SetInt("CoinCount",countCoint);
+        int level = PlayerPrefs.GetInt("Level",1);
+        PlayerPrefs.SetInt("Level",level+1);
+        mainMenuNextLevelTextBtn.text = "Next";
+        isNextLevelPlay = true;
+        winPanel.SetActive(false);
+        mainMenuPanel.SetActive(true);
+        
+    }
+
+   public void winDoubleBtnAds(){
+         adManager.ShowRewarded();
+   }
+
     public void mainMenuPlayButton(){
         FindObjectOfType<SoundManager>().isPlayButtonClick = true;
         FindObjectOfType<SoundManager>().playSFX();
         if(isNextLevelPlay){
-            SceneManager.LoadScene("SampleScene");
+            SceneManager.LoadScene("leveld");
         }else{
             mainMenuPanel.SetActive(false);
             playPanel.SetActive(true);
@@ -175,5 +216,13 @@ public class GameManager : MonoBehaviour
 
     public void choosePlayerScene(){
         SceneManager.LoadScene("MainMenu");
+    }
+
+    public void musicControllerUiEnabled(){
+        musicControlPanel.SetActive(true);
+    }
+
+    public void musicControllerUiClose(){
+        musicControlPanel.SetActive(false);
     }
 }

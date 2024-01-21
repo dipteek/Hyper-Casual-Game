@@ -1,0 +1,5 @@
+E:/Unity/unity project/Hyper Casual Game Latest/.utmp/RelWithDebInfo/6o2l4n1b/armeabi-v7a/CMakeFiles/edit_cache.dir
+E:/Unity/unity project/Hyper Casual Game Latest/.utmp/RelWithDebInfo/6o2l4n1b/armeabi-v7a/CMakeFiles/rebuild_cache.dir
+E:/Unity/unity project/Hyper Casual Game Latest/.utmp/RelWithDebInfo/6o2l4n1b/armeabi-v7a/FramePacing/CMakeFiles/swappywrapper.dir
+E:/Unity/unity project/Hyper Casual Game Latest/.utmp/RelWithDebInfo/6o2l4n1b/armeabi-v7a/FramePacing/CMakeFiles/edit_cache.dir
+E:/Unity/unity project/Hyper Casual Game Latest/.utmp/RelWithDebInfo/6o2l4n1b/armeabi-v7a/FramePacing/CMakeFiles/rebuild_cache.dir

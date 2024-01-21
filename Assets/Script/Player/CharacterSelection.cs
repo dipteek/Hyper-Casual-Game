@@ -86,7 +86,7 @@ public class CharacterSelection : MonoBehaviour
 
     public void StartGame(){
         PlayerPrefs.SetInt("selectedCharater",selectedCharater);
-        SceneManager.LoadScene(1,LoadSceneMode.Single);
+        SceneManager.LoadScene("leveld");
     }
 
     // Update is called once per frame

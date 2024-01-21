@@ -75,6 +75,15 @@ public class ButtonController : MonoBehaviour
             jumpButton.gameObject.SetActive(true);
             slideButton.gameObject.SetActive(true);
         }
+
+      
+       if (FindObjectOfType<GameManager>().gameLevelFinished)
+        {
+            jumpButton.gameObject.SetActive(false);
+            slideButton.gameObject.SetActive(false);
+        }
+
+
     }
 
     
@@ -137,6 +146,9 @@ public class ButtonController : MonoBehaviour
         animator.SetTrigger("run");
         pathFollower.isJumpFollowerCompleted =false;
         cameraHolder.isJumpOfCameraFollower = false;
+                        pathFollower.isAdvJumpFollowerCompletedAdv =false;
+                        pathFollower.isJumpFollower =false;
+      animator.SetTrigger("run");
     }
 
 

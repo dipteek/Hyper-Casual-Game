@@ -2,8 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class CoinCollecter : MonoBehaviour
 {
+    
     
     // Start is called before the first frame update
     void Start()
@@ -20,6 +22,7 @@ public class CoinCollecter : MonoBehaviour
     private void OnTriggerEnter(Collider other) {
         //if (other.gameObject.tag == "Coin")
        // {
+             FindObjectOfType<SoundManager>().playCoinColliderSFX();
              FindObjectOfType<GameManager>().coinCollect();
              Destroy(gameObject);
        // }

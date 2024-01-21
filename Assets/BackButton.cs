@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class BackButton : MonoBehaviour
 {
+    public GameObject loadingPanel;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +19,7 @@ public class BackButton : MonoBehaviour
     }
 
     public void PlayerScreenBack(){
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("leveld");
+        loadingPanel.SetActive(true);
     }
 }
