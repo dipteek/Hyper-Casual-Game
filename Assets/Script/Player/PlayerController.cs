@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     {
         //rb = GetComponent<Rigidbody>();
         playerAnimator = GetComponent<Animator>();
+        Debug.Log(" hii play ");
     }
 
     // Update is called once per frame
@@ -44,7 +45,7 @@ public class PlayerController : MonoBehaviour
             endPoint = Input.GetTouch(0).position;
         }
 
-        if (endPoint.y > startPoint.y && rb.velocity.y ==0)
+        if (endPoint.y > startPoint.y && rb.linearVelocity.y ==0)
         {
             print("is true");
            
@@ -73,7 +74,7 @@ public class PlayerController : MonoBehaviour
             rb.AddForce(Vector3.up * jumpForce);
             
             isJump = false;
-            if(rb.velocity.y == 0){
+            if(rb.linearVelocity.y == 0){
                 
             }
             playerAnimator.SetBool("jump", false);

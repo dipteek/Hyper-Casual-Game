@@ -83,7 +83,7 @@ public class SwipeController : MonoBehaviour
         }
 
 
-        if (endPoint.y > startPoint.y && rb.velocity.y ==0)
+        if (endPoint.y > startPoint.y && rb.linearVelocity.y ==0)
         {
             isJump = true;
                 // Up swipe
@@ -153,7 +153,7 @@ public class SwipeController : MonoBehaviour
         else
         {
             // Vertical swipe detected
-            if (fingerUpPosition.y > fingerDownPosition.y && rb.velocity.y == 0)
+            if (fingerUpPosition.y > fingerDownPosition.y && rb.linearVelocity.y == 0)
             {
                 isJump = true;
                 // Up swipe
@@ -174,7 +174,7 @@ public class SwipeController : MonoBehaviour
                 
                 
                 
-            }else if (fingerUpPosition.y < fingerDownPosition.y && rb.velocity.y == 0){
+            }else if (fingerUpPosition.y < fingerDownPosition.y && rb.linearVelocity.y == 0){
                 print("slde");
                 slide = true;
                 GetComponent<Animator>().SetTrigger("slide");
@@ -207,7 +207,7 @@ public class SwipeController : MonoBehaviour
         slide = false;
     }
     
-    if(rb.velocity.y == 0){
+    if(rb.linearVelocity.y == 0){
         //print("jump false");
         GetComponent<Animator>().SetTrigger("run");
                    // animator.SetBool("jump", false);
@@ -220,9 +220,9 @@ public class SwipeController : MonoBehaviour
             //animator.SetBool("jump", true);
             //animator.SetBool("idle", false);
            print("jump "+transform.position.y);
-           print(" Before "+rb.velocity.y);
+           print(" Before "+rb.linearVelocity.y);
            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);  
-           print(rb.velocity.y);
+           print(rb.linearVelocity.y);
            isJump = false;
    }
 
