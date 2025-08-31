@@ -26,10 +26,6 @@ public class ButtonController : MonoBehaviour
      public Receiver recevier;
 
      private Vector3 colliderTempPositionHold;
-
-     [SerializeField] FixedTouchField fixedTouchField;
-    float currentSpeed = 0f;
-    public float smoothingFactor = 0.1f;
     
     // Start is called before the first frame update
     void Start()
@@ -78,10 +74,6 @@ public class ButtonController : MonoBehaviour
         {
             jumpButton.gameObject.SetActive(true);
             slideButton.gameObject.SetActive(true);
-             // SMOOTH HORIZONTAL MOVEMENT BASED ON TOUCH
-            float moveAmount = fixedTouchField.TouchDist.x * Time.deltaTime;
-            currentSpeed = Mathf.Lerp(currentSpeed, moveAmount, smoothingFactor);
-            gameObject.transform.Translate(Vector3.right * currentSpeed);
         }
 
       
@@ -147,35 +139,17 @@ public class ButtonController : MonoBehaviour
                 StartCoroutine(DelayedForGround());
     }
 
-    // private IEnumerator DelayedForGround(){
-    //     yield return new WaitForSeconds(0.31f);
-    //     jumpButton.enabled = true;
-    //     //pathFollower.isJumpFollower = false;
-    //     animator.SetTrigger("run");
-    //     pathFollower.isJumpFollowerCompleted =false;
-    //     cameraHolder.isJumpOfCameraFollower = false;
-    //                     pathFollower.isAdvJumpFollowerCompletedAdv =false;
-    //                     pathFollower.isJumpFollower =false;
-    //   animator.SetTrigger("run");
-    // }
-
-    private IEnumerator DelayedForGround()
-    {
+    private IEnumerator DelayedForGround(){
         yield return new WaitForSeconds(0.31f);
         jumpButton.enabled = true;
-        
-        if (animator.GetCurrentAnimatorStateInfo(0).IsName("Jump")) 
-        {
-            yield return new WaitForSeconds(0.2f); // Wait a bit more if still jumping
-        }
-
+        //pathFollower.isJumpFollower = false;
         animator.SetTrigger("run");
-        pathFollower.isJumpFollowerCompleted = false;
+        pathFollower.isJumpFollowerCompleted =false;
         cameraHolder.isJumpOfCameraFollower = false;
-        pathFollower.isAdvJumpFollowerCompletedAdv = false;
-        pathFollower.isJumpFollower = false;
+                        pathFollower.isAdvJumpFollowerCompletedAdv =false;
+                        pathFollower.isJumpFollower =false;
+      animator.SetTrigger("run");
     }
-
 
 
 

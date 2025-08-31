@@ -28,29 +28,28 @@ public class FixedTouchField : MonoBehaviour , IPointerDownHandler, IPointerUpHa
     // Update is called once per frame
     void Update()
     {
-        
-            if (Presseds)
+        if (Presseds)
+        {
+            if (PointerId >= 0 && PointerId < Input.touches.Length)
             {
-        #if UNITY_EDITOR
-                TouchDist = (Vector2)Input.mousePosition - PointerOld;
+                /*TouchDist = Input.touches[PointerId].position - PointerOld;
+                PointerOld = Input.touches[PointerId].position;*/
+                TouchDistx =Input.touches[PointerId].position.x;
+                TouchDist = new Vector2(Input.mousePosition.x, Input.mousePosition.y) - PointerOld;
                 PointerOld = Input.mousePosition;
-                TouchDistx = PointerOld.x;
-        #else
-                if (PointerId >= 0 && PointerId < Input.touchCount)
-                {
-                    Touch touch = Input.GetTouch(PointerId);
-                    TouchDist = touch.position - PointerOld;
-                    PointerOld = touch.position;
-                    TouchDistx = touch.position.x;
-                }
-        #endif
+                PointerOldx = Input.mousePosition.x;
             }
             else
             {
-                TouchDist = Vector2.zero;
+                TouchDist = new Vector2(Input.mousePosition.x, Input.mousePosition.y) - PointerOld;
+                PointerOld = Input.mousePosition;
+                TouchDistx =Input.touches[PointerId].position.x;
             }
-        
-
+        }
+        else
+        {
+            TouchDist = new Vector2();
+        }
     }
 
     public void OnPointerDown(PointerEventData eventData)
